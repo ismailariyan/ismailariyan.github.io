@@ -283,7 +283,50 @@ body {
     transform: rotate(180deg);
   }
   
+  /* --------------------------
+  Keyframes
+--------------------------- */
+@keyframes offset {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
   
+  @keyframes fill-it {
+    100% {
+      fill : white;
+    }
+  }
+  
+  @keyframes fill-outer {
+    100% {
+      fill : blue;
+    }
+  }
+  
+  /* --------------------------
+    SVG Styles
+  --------------------------- */
+  
+  .wrapper {
+    margin-top: 50px;
+  }
+  
+  .logo {
+    stroke: white;
+    stroke-width: 4;
+    stroke-dasharray : 1040;
+    stroke-dashoffset : 1040;
+    
+    animation: offset 5s linear forwards,
+      fill-it .8s 5s forwards,
+      logo-glow 2s 5.8s infinite alternate;
+  }
+  
+  .outer {
+    fill : transparent;
+    animation: fill-outer 4s 6s forwards;
+  }
 @keyframes float {
     0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
     50% { transform: translate(-50%, -55%) rotate(5deg); }
@@ -297,6 +340,14 @@ body {
 @keyframes sonar {
     0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4); }
     100% { box-shadow: 0 0 0 15px rgba(0, 243, 255, 0); }
+}
+@keyframes logo-glow {
+    0% {
+        filter: drop-shadow(0 0 5px var(--bat-yellow));
+    }
+    100% {
+        filter: drop-shadow(0 0 5px var(--bat-yellow));
+    }
 }
 
 @media (max-width: 768px) {
