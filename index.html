@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismail Ariyan | Dark Knight Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="bat-logo">
+        <!-- Add Batman logo SVG path here -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Actual Batman logo SVG paths would go here -->
+        </svg>
+    </div>
+    <div class="parallax-bg"></div>
+
+    <nav class="bat-nav">
+        <div class="nav-item" data-section="hero">Batcave</div>
+        <div class="nav-item" data-section="projects">Case Files</div>
+        <div class="nav-item" data-section="contact">Bat-Signal</div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <h1 class="bat-title">
+            <span class="glow">Ismail Ariyan</span>
+            <span class="bat-subtitle">Dark Knight Developer</span>
+        </h1>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2 class="section-title">// GOTHAM CASE FILES //</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="case-file" data-status="active">
+                <div class="classified-overlay"></div>
+                <h3 class="codename">Operation Print Protocol</h3>
+                <div class="tech-badges">
+                    <span class="badge python">Python</span>
+                    <span class="badge system">SystemD</span>
+                </div>
+                <p class="encrypted-desc">Automated print surveillance system monitoring network printers</p>
+                <div class="bat-status"></div>
+                <a href="https://github.com/ismailariyan/print-reminder" class="github-link" target="_blank" aria-label="View source code">
+                    <div class="bat-icon"></div>
+                </a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="case-file" data-status="active">
+                <div class="classified-overlay"></div>
+                <h3 class="codename">Project Cerberus Feeder</h3>
+                <div class="tech-badges">
+                    <span class="badge iot">IoT</span>
+                    <span class="badge hardware">ESP32</span>
+                </div>
+                <p class="encrypted-desc">Automated nutrition deployment system for canine allies</p>
+                <div class="bat-status"></div>
+                <a href="https://github.com/ismailariyan/iot-pet-feeder" class="github-link" target="_blank" aria-label="View source code">
+                    <div class="bat-icon"></div>
+                </a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="case-file" data-status="active">
+                <div class="classified-overlay"></div>
+                <h3 class="codename">Form Phantom</h3>
+                <div class="tech-badges">
+                    <span class="badge python">Python</span>
+                    <span class="badge automation">Selenium</span>
+                </div>
+                <p class="encrypted-desc">Covert operations automation for bureaucratic systems</p>
+                <div class="bat-status"></div>
+                <a href="https://github.com/ismailariyan/evaluation_form_autosubmitter" class="github-link" target="_blank" aria-label="View source code">
+                    <div class="bat-icon"></div>
+                </a>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="case-file" data-status="active">
+                <div class="classified-overlay"></div>
+                <h3 class="codename">Velocity Sentinel</h3>
+                <div class="tech-badges">
+                    <span class="badge flask">Flask</span>
+                    <span class="badge vision">OpenCV</span>
+                </div>
+                <p class="encrypted-desc">Gotham traffic surveillance and regulation system</p>
+                <div class="bat-status"></div>
+                <a href="https://github.com/ismailariyan/vehicle-overspeeding-detection-flaskapp" class="github-link" target="_blank" aria-label="View source code">
+                    <div class="bat-icon"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">ACTIVATE BAT-SIGNAL</h2>
+        <form class="bat-form">
+            <div class="input-group">
+                <input type="text" class="bat-input" placeholder="Your Identity" required>
+                <div class="input-underline"></div>
+            </div>
+            <div class="input-group">
+                <input type="email" class="bat-input" placeholder="Signal Frequency" required>
+                <div class="input-underline"></div>
+            </div>
+            <div class="input-group">
+                <textarea class="bat-input" placeholder="Encrypted Message" rows="4" required></textarea>
+                <div class="input-underline"></div>
+            </div>
+            <button type="submit" class="bat-button">
+                <span class="button-text">SUMMON</span>
+                <div class="bat-symbol"></div>
+            </button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
