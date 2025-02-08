@@ -1,4 +1,11 @@
 /* style.css */
+@font-face {
+  font-family: 'Batman';
+  src: url('../fonts/batman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
     --bat-black: #0a0a0a;
     --bat-yellow: #FFD700;
@@ -23,12 +30,62 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 400px;
+    width: 800px;
     height: 400px;
     background: url('data:image/svg+xml;utf8,<svg...batman logo path.../>');
     opacity: 0.1;
     z-index: -1;
     animation: float 6s ease-in-out infinite;
+}
+/* Navigation */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-item {
+    color: var(--bat-yellow);
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--bat-yellow);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Remove old bat-nav styles if they exist */
+.bat-nav {
+    display: none;
 }
 
 .parallax-bg {
@@ -57,11 +114,15 @@ body {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .glow {
     display: block;
-    font-size: 4rem;
+    font-size: 6rem;
+    font-family: 'Batman', sans-serif;
     text-shadow: 0 0 10px var(--bat-yellow);
     animation: glow 2s ease-in-out infinite alternate;
 }
@@ -114,6 +175,115 @@ body {
     animation: sonar 1.5s infinite;
 }
 
+.github-link {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .bat-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--bat-yellow);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: transform 0.3s ease;
+  }
+  
+  .github-link:hover .bat-icon {
+    transform: rotate(360deg);
+  }
+/* Contact Section */
+.contact {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    position: relative;
+  }
+  
+  .bat-form {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--bat-yellow);
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .input-group {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .bat-input {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--bat-gray);
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .bat-input:focus {
+    outline: none;
+    border-bottom-color: var(--neon-blue);
+  }
+  
+  .input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: width 0.3s ease;
+  }
+  
+  .bat-input:focus ~ .input-underline {
+    width: 100%;
+  }
+  
+  .bat-button {
+    background: var(--bat-gray);
+    border: 2px solid var(--bat-yellow);
+    color: var(--bat-yellow);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem auto;
+  }
+  
+  .bat-button:hover {
+    background: var(--bat-yellow);
+    color: var(--bat-black);
+    letter-spacing: 2px;
+  }
+  
+  .bat-symbol {
+    width: 20px;
+    height: 20px;
+    background: var(--bat-black);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: transform 0.3s ease;
+  }
+  
+  .bat-button:hover .bat-symbol {
+    transform: rotate(180deg);
+  }
+  
+  
 @keyframes float {
     0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
     50% { transform: translate(-50%, -55%) rotate(5deg); }
@@ -128,3 +298,40 @@ body {
     0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4); }
     100% { box-shadow: 0 0 0 15px rgba(0, 243, 255, 0); }
 }
+
+@media (max-width: 768px) {
+    .glow {
+      font-size: 2.5rem;
+    }
+  
+    .bat-subtitle {
+      font-size: 5rem;
+    }
+  
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .bat-nav {
+      top: 1rem;
+      right: 1rem;
+      flex-direction: row;
+      gap: 1rem;
+    }
+  
+    .nav-item {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .glow {
+      font-size: 2rem;
+      letter-spacing: 0.2rem;
+    }
+  
+    .bat-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
