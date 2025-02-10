@@ -311,6 +311,17 @@ body {
   .wrapper {
     margin-top: 50px;
   }
+  .wrapper svg {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Default max width for larger screens */
+}
+
+@media (max-width: 480px) {
+    .wrapper svg {
+        max-width: 300px; /* Adjust for smaller screens */
+    }
+}
   
   .logo {
     stroke: white;
