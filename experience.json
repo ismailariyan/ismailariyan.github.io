@@ -1,0 +1,23 @@
+[
+  {
+    "title": "General Secretary",
+    "organization": "BUP Robotics Club",
+    "duration": "February 2024 - Present",
+    "responsibilities": [
+      "Led recruitment initiatives.",
+      "Built competitive Line Following Robot (LFR) and RoboSoccer Teams.",
+      "Currently working on a Surveillance Drone Project.",
+      "Organized drone development workshops and events, including 'Monetize Your Apps & Ideas in bdapps National Appstore' with bdapps.",
+      "Conducted multiple Arduino Microcontroller sessions."
+    ]
+  },
+  {
+    "title": "Beta Ambassador",
+    "organization": "Microsoft Learn Student Ambassadors",
+    "duration": "September 2023 - Present",
+    "responsibilities": [
+      "Led sessions on Azure AI, Azure Cloud Platform, Machine Learning, Git, GitHub for beginners, and Virtual Machines (VM) as the campus lead at BUP.",
+      "Organized the AI and Cloud Innovation Competition for students, enhancing practical skills in Azure technology."
+    ]
+  }
+]

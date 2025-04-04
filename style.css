@@ -1,16 +1,27 @@
 /* style.css */
-@font-face {
-  font-family: 'Batman';
-  src: url('../fonts/batman.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Rajdhani:wght@500;700&display=swap'); /* Example fonts */
 
 :root {
-    --bat-black: #0a0a0a;
-    --bat-yellow: #FFD700;
-    --bat-gray: #1a1a1a;
-    --neon-blue: #00F3FF;
+    /* Synthwave/Techno Batman Palette */
+    --bg-dark-primary: #0a0a1a; /* Deep dark blue/purple */
+    --bg-dark-secondary: #1a1a3d; /* Slightly lighter dark */
+    --glass-bg: rgba(26, 26, 61, 0.6); /* Semi-transparent dark for glass */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #e0e0e0; /* Light gray/off-white */
+    --text-secondary: #a0a0c0; /* Muted purple/gray */
+    --accent-neon-cyan: #00f0ff;
+    --accent-electric-blue: #00bfff; /* New Electric Blue */
+    --accent-neon-green: #39ff14; /* Use sparingly */
+    --accent-hover: var(--accent-neon-cyan); /* Default hover accent */
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-headings: 'Rajdhani', sans-serif;
+
+    /* Layout */
+    --grid-gap: 1.5rem;
+    --box-padding: 1.5rem;
+    --border-radius: 10px;
 }
 
 * {
@@ -20,380 +31,328 @@
 }
 
 body {
-    background: var(--bat-black);
-    color: white;
-    font-family: 'Courier New', monospace;
-    overflow-x: hidden;
+    background-color: var(--bg-dark-primary);
+    /* Optional: Add a subtle gradient or noise texture */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px; /* Subtle grid lines */
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    padding: var(--grid-gap); /* Add padding around the whole grid */
+    min-height: 100vh;
 }
 
-.bat-logo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 800px;
-    height: 400px;
-    background: url('data:image/svg+xml;utf8,<svg...batman logo path.../>');
-    opacity: 0.1;
-    z-index: -1;
-    animation: float 6s ease-in-out infinite;
-}
-/* Navigation */
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    z-index: 100;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--accent-neon-cyan); /* Neon headings */
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.nav-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.nav-item {
-    color: var(--bat-yellow);
+a {
+    color: var(--accent-electric-blue); /* Changed from magenta */
     text-decoration: none;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
+    transition: color 0.3s ease;
 }
 
-.nav-item::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--bat-yellow);
-    transition: width 0.3s ease;
+a:hover {
+    color: var(--accent-hover);
 }
 
-.nav-item:hover::after {
-    width: 100%;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Remove old bat-nav styles if they exist */
-.bat-nav {
-    display: none;
-}
-
-.parallax-bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        45deg,
-        var(--bat-gray) 0px,
-        var(--bat-gray) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    z-index: -2;
-}
-
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-}
-
-.bat-title {
+/* Header and Footer */
+.site-header, .site-footer {
+    padding: 1rem var(--grid-gap);
+    margin-bottom: var(--grid-gap); /* Space below header */
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5rem;
+}
+
+.site-footer {
+    margin-top: var(--grid-gap); /* Space above footer */
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem; /* Space if header has other content */
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+}
+
+.social-links a:hover {
+    color: var(--accent-hover);
+    transform: scale(1.1);
+}
+
+/* Single Column Layout Container */
+#bento-grid { /* Re-purposing ID, but removing grid */
+    display: flex; /* Use flexbox for simple centering */
+    flex-direction: column;
+    gap: var(--grid-gap); /* Keep the gap between boxes */
+    max-width: 900px; /* Adjust max-width for single column */
+    margin: 0 auto; /* Center the column */
+}
+
+/* Remove Grid-specific properties from boxes */
+/* .about-box, .skills-box, .projects-box, .experience-box, .contact-box no longer need grid spans */
+
+
+/* Glassmorphism Box Style (Applies to all sections) */
+.bento-box { /* Keep general styling */
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: var(--box-padding);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Ensure content doesn't spill */
+}
+
+.bento-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 240, 255, 0.1); /* Subtle cyan glow on hover */
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+/* Specific Box Styling */
+/* No need for explicit spans here anymore */
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* Stack image and text */
+    align-items: center; /* Center items */
+    gap: 1rem;
+}
+
+.profile-picture {
+    width: 150px; /* Adjust size */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-neon-cyan);
+}
+
+.skills-box .skills-container {
+    display: flex; /* Changed from grid */
+    flex-wrap: wrap; /* Allow categories to wrap */
+    gap: var(--grid-gap); /* Keep gap between categories */
+    /* Removed justify-content for now, let items flow naturally */
+}
+
+.skill-category {
+    /* Define basis for wrapping - adjust as needed */
+    flex-basis: calc(33.333% - var(--grid-gap)); /* Aim for ~3 columns, adjust percentage if needed */
+    min-width: 200px; /* Ensure minimum width */
+    /* Remove grid-specific properties if any were added */
+}
+
+.skill-category h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.3rem;
+}
+
+.skill-category h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-neon-cyan);
+}
+
+.skill-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-list li {
+    background-color: rgba(0, 240, 255, 0.05); /* Faint cyan background */
+    padding: 0.3rem 0.6rem;
+    margin-bottom: 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--accent-neon-cyan);
+    transition: background-color 0.3s ease;
+}
+
+.skill-list li:hover {
+    background-color: rgba(0, 240, 255, 0.1);
+}
+
+.experience-box .experience-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem; /* Space between experience items */
 }
 
-.glow {
-    display: block;
-    font-size: 6rem;
-    font-family: 'Batman', sans-serif;
-    text-shadow: 0 0 10px var(--bat-yellow);
-    animation: glow 2s ease-in-out infinite alternate;
+.experience-item {
+    border-left: 3px solid var(--accent-neon-magenta);
+    padding-left: 1rem;
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.case-file {
-    background: var(--bat-gray);
-    border-radius: 10px;
-    padding: 1.5rem;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.case-file:hover {
-    transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
-}
-
-.tech-badges {
-    display: flex;
-    gap: 0.5rem;
-    margin: 1rem 0;
-}
-
-.badge {
-    padding: 0.3rem 0.7rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-}
-
-.badge.python { background: #306998; }
-.badge.system { background: var(--bat-yellow); color: black; }
-
-.bat-status {
-    width: 20px;
-    height: 20px;
-    background: var(--neon-blue);
-    border-radius: 50%;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    animation: sonar 1.5s infinite;
-}
-
-.github-link {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-  }
-  
-  .bat-icon {
-    width: 30px;
-    height: 30px;
-    background: var(--bat-yellow);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    transition: transform 0.3s ease;
-  }
-  
-  .github-link:hover .bat-icon {
-    transform: rotate(360deg);
-  }
-/* Contact Section */
-.contact {
-    min-height: 100vh;
-    padding: 4rem 2rem;
-    position: relative;
-  }
-  
-  .bat-form {
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid var(--bat-yellow);
-    box-shadow: 0 0 20px rgba(255, 255, 0, 0.2);
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .input-group {
-    margin-bottom: 2rem;
-    position: relative;
-  }
-  
-  .bat-input {
-    width: 100%;
-    padding: 1rem;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid var(--bat-gray);
-    color: white;
-    font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .bat-input:focus {
-    outline: none;
-    border-bottom-color: var(--neon-blue);
-  }
-  
-  .input-underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--neon-blue);
-    transition: width 0.3s ease;
-  }
-  
-  .bat-input:focus ~ .input-underline {
-    width: 100%;
-  }
-  
-  .bat-button {
-    background: var(--bat-gray);
-    border: 2px solid var(--bat-yellow);
-    color: var(--bat-yellow);
-    padding: 1rem 2rem;
+.experience-item h4 {
     font-size: 1.2rem;
-    text-transform: uppercase;
-    cursor: pointer;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.experience-org-duration {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    display: block; /* Ensure it takes its own line */
+}
+
+.experience-item ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    font-size: 0.95rem;
+}
+
+.experience-item ul li {
+    margin-bottom: 0.3rem;
     position: relative;
-    transition: all 0.3s ease;
+    padding-left: 1rem; /* Space for custom bullet */
+}
+
+.experience-item ul li::before {
+    content: '»'; /* Custom bullet */
+    position: absolute;
+    left: 0;
+    color: var(--accent-electric-blue); /* Changed from magenta */
+    font-weight: bold;
+}
+
+.projects-box .projects-container {
+    display: grid;
+    /* Adjusted minmax for potentially fewer columns/gaps */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--grid-gap);
+}
+
+.project-card {
+    background-color: rgba(26, 26, 61, 0.8); /* Slightly darker inner card */
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.15); /* Electric Blue glow */
+    border-color: rgba(0, 191, 255, 0.4);
+}
+
+.project-card h4 {
+    font-size: 1.1rem;
+    color: var(--accent-neon-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    flex-grow: 1; /* Make description take available space */
+    margin-bottom: 1rem;
+}
+
+.project-tech {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    background-color: var(--accent-electric-blue); /* Changed from magenta */
+    color: var(--bg-dark-primary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.project-links {
+    margin-top: auto; /* Push links to the bottom */
+    display: flex;
     gap: 1rem;
-    margin: 2rem auto;
-  }
-  
-  .bat-button:hover {
-    background: var(--bat-yellow);
-    color: var(--bat-black);
-    letter-spacing: 2px;
-  }
-  
-  .bat-symbol {
-    width: 20px;
-    height: 20px;
-    background: var(--bat-black);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    transition: transform 0.3s ease;
-  }
-  
-  .bat-button:hover .bat-symbol {
-    transform: rotate(180deg);
-  }
-  
-  /* --------------------------
-  Keyframes
---------------------------- */
-@keyframes offset {
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-  
-  @keyframes fill-it {
-    100% {
-      fill : white;
-    }
-  }
-  
-  @keyframes fill-outer {
-    100% {
-      fill : blue;
-    }
-  }
-  
-  /* --------------------------
-    SVG Styles
-  --------------------------- */
-  
-  .wrapper {
-    margin-top: 50px;
-  }
-  .wrapper svg {
-    width: 100%;
-    height: auto;
-    max-width: 500px; /* Default max width for larger screens */
 }
 
-@media (max-width: 480px) {
-    .wrapper svg {
-        max-width: 300px; /* Adjust for smaller screens */
-    }
-}
-  
-  .logo {
-    stroke: white;
-    stroke-width: 4;
-    stroke-dasharray : 1040;
-    stroke-dashoffset : 1040;
-    
-    animation: offset 5s linear forwards,
-      fill-it .8s 5s forwards,
-      logo-glow 2s 5.8s infinite alternate;
-  }
-  
-  .outer {
-    fill : transparent;
-    animation: fill-outer 4s 6s forwards;
-  }
-@keyframes float {
-    0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
-    50% { transform: translate(-50%, -55%) rotate(5deg); }
+.project-links a {
+    color: var(--accent-neon-cyan);
+    font-size: 0.9rem;
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    gap: 0.3rem;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px var(--bat-yellow); }
-    to { text-shadow: 0 0 20px var(--bat-yellow), 0 0 30px var(--bat-yellow); }
+.project-links a:hover {
+    text-decoration: underline;
 }
 
-@keyframes sonar {
-    0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4); }
-    100% { box-shadow: 0 0 0 15px rgba(0, 243, 255, 0); }
-}
-@keyframes logo-glow {
-    0% {
-        filter: drop-shadow(0 0 5px var(--bat-yellow));
-    }
-    100% {
-        filter: drop-shadow(0 0 5px var(--bat-yellow));
-    }
+.contact-box {
+    text-align: center;
 }
 
-@media (max-width: 768px) {
-    .glow {
-      font-size: 2.5rem;
+.contact-button {
+    display: inline-block;
+    background-color: var(--accent-electric-blue); /* Changed from magenta */
+    color: var(--bg-dark-primary);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: var(--accent-hover);
+    color: var(--bg-dark-primary);
+    transform: scale(1.05);
+}
+
+.contact-button i {
+    margin-right: 0.5rem;
+}
+
+/* --- Responsive Styles --- */
+/* Media queries are less critical for layout now, but adjust padding/fonts */
+
+@media (max-width: 768px) { /* Mobile */
+     /* No grid changes needed, already single column */
+
+    .about-content {
+        flex-direction: column; /* Ensure stacking on mobile */
+        text-align: center;
     }
-  
-    .bat-subtitle {
-      font-size: 5rem;
+
+    body {
+        padding: calc(var(--grid-gap) / 2);
     }
-  
-    .projects-grid {
-      grid-template-columns: 1fr;
+
+    .bento-box {
+        padding: calc(var(--box-padding) / 1.5);
     }
-  
-    .bat-nav {
-      top: 1rem;
-      right: 1rem;
-      flex-direction: row;
-      gap: 1rem;
+
+    h2 {
+        font-size: 1.5rem;
     }
-  
-    .nav-item {
-      font-size: 0.9rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .glow {
-      font-size: 2rem;
-      letter-spacing: 0.2rem;
-    }
-  
-    .bat-button {
-      width: 100%;
-      justify-content: center;
-    }
-  }
+}

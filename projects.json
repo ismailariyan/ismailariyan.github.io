@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Print Reminder",
+    "description": "A Python script using SystemD to monitor network printer status and send reminders.",
+    "technologies": ["Python", "SystemD", "Linux"],
+    "githubUrl": "https://github.com/ismailariyan/print-reminder",
+    "liveUrl": null
+  },
+  {
+    "title": "IoT Pet Feeder",
+    "description": "An ESP32-based IoT device for automatically dispensing pet food at scheduled times.",
+    "technologies": ["IoT", "ESP32", "Arduino", "Hardware"],
+    "githubUrl": "https://github.com/ismailariyan/iot-pet-feeder",
+    "liveUrl": null
+  },
+  {
+    "title": "Evaluation Form Autosubmitter",
+    "description": "A Python script using Selenium to automate the submission of online evaluation forms.",
+    "technologies": ["Python", "Selenium", "Automation"],
+    "githubUrl": "https://github.com/ismailariyan/evaluation_form_autosubmitter",
+    "liveUrl": null
+  },
+  {
+    "title": "Vehicle Overspeeding Detection",
+    "description": "A Flask web application using OpenCV for real-time vehicle speed detection from video streams.",
+    "technologies": ["Python", "Flask", "OpenCV", "Computer Vision"],
+    "githubUrl": "https://github.com/ismailariyan/vehicle-overspeeding-detection-flaskapp",
+    "liveUrl": null
+  },
+  {
+    "title": "Shop Management System",
+    "description": "Desktop application for managing shop inventory and sales.",
+    "technologies": ["Java", "JavaFX", "SQL"],
+    "githubUrl": "https://github.com/ismailariyan/ShopMS",
+    "liveUrl": null
+  },
+  {
+    "title": "Bangla Voice Control Arduino",
+    "description": "Controlling Arduino projects using Bangla voice commands via Bluetooth.",
+    "technologies": ["Arduino", "C++", "Bluetooth", "Hardware", "Voice Recognition"],
+    "githubUrl": "https://github.com/ismailariyan/bangla-voice-control-arduino-bt",
+    "liveUrl": null
+  }
+]

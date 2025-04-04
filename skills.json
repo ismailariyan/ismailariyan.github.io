@@ -1,0 +1,8 @@
+{
+  "languages": ["C", "C++", "Java", "Python", "Dart", "SQL", "HTML", "CSS", "PHP", "JavaScript", "PostgreSQL"],
+  "frameworks_libraries": ["Flutter", "JavaFX", "Flask", "FastAPI", "PyTorch", "Django", "DRF"],
+  "iot_embedded": ["Blynk Platform", "ESP RainMaker", "Arduino"],
+  "tools_vcs": ["Git", "GitHub", "Docker", "Basic Linux Skills"],
+  "cloud": ["Azure", "Azure VMs", "Azure OpenAI"],
+  "certifications": ["Microsoft Certified: Azure AI Fundamentals (AI-900)"]
+}
